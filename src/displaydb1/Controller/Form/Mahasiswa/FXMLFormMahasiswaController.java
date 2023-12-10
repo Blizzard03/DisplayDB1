@@ -10,7 +10,9 @@ import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
@@ -61,10 +63,22 @@ public class FXMLFormMahasiswaController implements Initializable {
 
     @FXML
     private void Reset_Click(ActionEvent event) {
+        Alert art = new Alert(Alert.AlertType.WARNING, "The data will be permanently deleted and it will be impossible to restore it. There will be no available actions to reverse this process!!", ButtonType.YES,
+                ButtonType.NO);
+        art.showAndWait();
+        if (art.getResult() == ButtonType.YES) {
+            
+        }
     }
 
     @FXML
     private void CancelClick(ActionEvent event) {
+          Alert art = new Alert(Alert.AlertType.CONFIRMATION, "Are You Sure Want Cancel This Process Now?", ButtonType.YES,
+                ButtonType.NO);
+        art.showAndWait();
+        if (art.getResult() == ButtonType.YES) {
+            cancelbtn.getScene().getWindow().hide();
+        }
     }
 
 }
