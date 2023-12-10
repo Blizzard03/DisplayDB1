@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="DisplayDB1.jnlp">
+  <information>
+    <title>DisplayDB1</title>
+    <vendor>Blizzard</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="DisplayDB1.jar" size="920584" download="eager" />
+    <jar href="lib\mysql-connector-java-3.1.11a-bin.jar" size="442841" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="displaydb1.Main_Class.DisplayDB1"  name="DisplayDB1" />
+  <update check="always"/>
+</jnlp>
