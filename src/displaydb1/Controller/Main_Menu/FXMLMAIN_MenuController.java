@@ -43,6 +43,10 @@ public class FXMLMAIN_MenuController {
     private MenuItem About_Menu;
     @FXML
     private AnchorPane Main_Menu;
+    @FXML
+    private MenuItem Form_Mahasiswa;
+    @FXML
+    private MenuItem Form_MataKuliah;
 
     @FXML
     private void Mahasiswa_Table_View(ActionEvent event) {
@@ -104,6 +108,14 @@ public class FXMLMAIN_MenuController {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    private void Form_Mahasiswa_Click(ActionEvent event) {
+    }
+
+    @FXML
+    private void Form_MataKuliah_Click(ActionEvent event) {
     }
     
     
