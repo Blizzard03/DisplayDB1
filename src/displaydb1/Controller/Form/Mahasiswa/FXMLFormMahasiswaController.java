@@ -99,7 +99,7 @@ public class FXMLFormMahasiswaController implements Initializable {
     @FXML
     private void Reset_Click(ActionEvent event) {
         Alert art = new Alert(Alert.AlertType.WARNING, "The data will be permanently deleted and it will be impossible to restore it. There will be no available actions to reverse this process!!", ButtonType.YES,
-                ButtonType.NO);
+                ButtonType.NO);     
         art.showAndWait();
         if (art.getResult() == ButtonType.YES) {
 
