@@ -79,6 +79,31 @@ public class FXMLMAIN_MenuController {
 
     @FXML
     private void Mata_Kuliah_Table_View(ActionEvent event) {
+         try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/displaydb1/FXML/List_MataKuliah/FXMLListData_MataKuliah.fxml"));
+            Parent root = (Parent) loader.load();
+            Scene scene = new Scene(root);
+            Stage stg = new Stage();
+            stg.setTitle("Tabel Data Mata Kuliah");
+            stg.setOnCloseRequest(new EventHandler<WindowEvent>() {
+                public void handle(final WindowEvent windowEvent) {
+                    Alert al = new Alert(Alert.AlertType.CONFIRMATION, "Are You Sure Want Quit The Program?", ButtonType.OK, ButtonType.CANCEL);
+                    al.showAndWait();
+                    if (al.getResult() == ButtonType.CANCEL) {
+                        windowEvent.consume();
+                    }
+                }
+            }
+            );
+            stg.initModality(Modality.APPLICATION_MODAL);
+            stg.setResizable(false);
+            stg.setIconified(false);
+            stg.setScene(scene);
+            stg.show();
+            Main_Menu.getScene().getWindow().hide();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

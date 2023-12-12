@@ -5,6 +5,7 @@
 package displaydb1.Controller.Form.Mahasiswa;
 
 import displaydb1.Model.Siswa.Siswa;
+import displaydb1.Controller.Main_Menu.FXMLMAIN_MenuController;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -59,6 +60,40 @@ public class FXMLFormMahasiswaController implements Initializable {
 
     @FXML
     private void Submit_Click(ActionEvent event) {
+        Siswa sws = new Siswa();
+        sws.setNPM(txtNPM.getText());
+        sws.setNama(Txt_Nama.getText());
+        sws.setAlamat(Txt_Alamat.getText());
+        if (txtNPM.getText() != "" && Txt_Nama.getText() != "" && Txt_Alamat.getText() != "") {
+            sws.setNPM(txtNPM.getText());
+            sws.setNama(Txt_Nama.getText());
+            sws.setAlamat(Txt_Alamat.getText());
+        }
+        FXMLMAIN_MenuController.dataBaseMahasiswa.setSiswaModels(sws);
+        if (TextEdit) {
+            if (FXMLMAIN_MenuController.dataBaseMahasiswa.Update_Data()) {
+                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data Successed Update", ButtonType.OK);
+                a.showAndWait();
+                txtNPM.setEditable(true);
+                CancelClick(event);
+            } else {
+                Alert a = new Alert(Alert.AlertType.ERROR, "Data failed to Update", ButtonType.OK);
+                a.showAndWait();
+            }
+        } else if (FXMLMAIN_MenuController.dataBaseMahasiswa.validate(sws.getNPM()) <= 0) {
+            if (FXMLMAIN_MenuController.dataBaseMahasiswa.Insert_Data()) {
+                Alert a = new Alert(Alert.AlertType.INFORMATION, "Data Success to Save", ButtonType.OK);
+                a.showAndWait();
+                CancelClick(event);
+            } else {
+                Alert a = new Alert(Alert.AlertType.ERROR, "Data failed to Save", ButtonType.OK);
+                a.showAndWait();
+            }
+        } else {
+            Alert a = new Alert(Alert.AlertType.ERROR, "data already exists", ButtonType.OK);
+            a.showAndWait();
+            CancelClick(event);
+        }
     }
 
     @FXML
@@ -67,13 +102,13 @@ public class FXMLFormMahasiswaController implements Initializable {
                 ButtonType.NO);
         art.showAndWait();
         if (art.getResult() == ButtonType.YES) {
-            
+
         }
     }
 
     @FXML
     private void CancelClick(ActionEvent event) {
-          Alert art = new Alert(Alert.AlertType.CONFIRMATION, "Are You Sure Want Cancel This Process Now?", ButtonType.YES,
+        Alert art = new Alert(Alert.AlertType.CONFIRMATION, "Are You Sure Want Cancel This Process Now?", ButtonType.YES,
                 ButtonType.NO);
         art.showAndWait();
         if (art.getResult() == ButtonType.YES) {

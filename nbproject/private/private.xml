@@ -3,8 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Blizzard/Documents/GitHub/DisplayDB1/src/displaydb1/FXML/Main_Menu/FXMLMain_Menu.fxml</file>
-            <file>file:/C:/Users/Blizzard/Documents/GitHub/DisplayDB1/src/displaydb1/Controller/Main_Menu/FXMLMAIN_MenuController.java</file>
+            <file>file:/C:/Users/Blizzard/Documents/NetBeansProjects/DisplayDB1/src/displaydb1/Model/Siswa/Siswa.java</file>
+            <file>file:/C:/Users/Blizzard/Documents/NetBeansProjects/DisplayDB1/src/displaydb1/Connector/Connector_DB.java</file>
+            <file>file:/C:/Users/Blizzard/Documents/NetBeansProjects/DisplayDB1/src/displaydb1/Controller/Main_Menu/FXMLMAIN_MenuController.java</file>
+            <file>file:/C:/Users/Blizzard/Documents/NetBeansProjects/DisplayDB1/src/displaydb1/FXML/Main_Menu/FXMLMain_Menu.fxml</file>
+            <file>file:/C:/Users/Blizzard/Documents/NetBeansProjects/DisplayDB1/src/displaydb1/Model/Matakuliah/MataKuliah.java</file>
+            <file>file:/C:/Users/Blizzard/Documents/NetBeansProjects/DisplayDB1/src/displaydb1/Main_Class/DisplayDB1.java</file>
+            <file>file:/C:/Users/Blizzard/Documents/NetBeansProjects/DisplayDB1/src/displaydb1/Controller/Form/Mahasiswa/FXMLFormMahasiswaController.java</file>
         </group>
     </open-files>
 </project-private>

@@ -20,8 +20,8 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Form">
             <items>
-              <MenuItem mnemonicParsing="false" text="Form Mahasiswa" />
-                  <MenuItem mnemonicParsing="false" text="Form Mata Kuliah" />
+              <MenuItem fx:id="Form_Mahasiswa" mnemonicParsing="false" onAction="#Form_Mahasiswa_Click" text="Form Mahasiswa" />
+                  <MenuItem fx:id="Form_MataKuliah" mnemonicParsing="false" onAction="#Form_MataKuliah_Click" text="Form Mata Kuliah" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Help">

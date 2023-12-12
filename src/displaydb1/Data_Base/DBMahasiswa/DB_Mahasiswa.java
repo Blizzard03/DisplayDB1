@@ -21,11 +21,11 @@ public class DB_Mahasiswa {
 
     private Siswa sws = new Siswa();
 
-    public Siswa getUserModels() {
+    public Siswa getSiswaModels() {
         return (sws);
     }
 
-    public void setUserModels(Siswa swsa) {
+    public void setSiswaModels(Siswa swsa) {
         sws = swsa;
     }
 
@@ -59,7 +59,7 @@ public class DB_Mahasiswa {
     /*
     * VALIDATE DATA
      */
-    public int validate(int order) {
+    public int validate(String order) {
         int val = 0;
         try {
             Connector_DB conDB = new Connector_DB();
@@ -78,15 +78,15 @@ public class DB_Mahasiswa {
     /*
     * CREATE DATA
      */
-    public boolean Inser_Data() {
+    public boolean Insert_Data() {
         boolean Succes = false;
         Connector_DB conDB = new Connector_DB();
         try {
             conDB.Open_Connection();
             conDB.preparedStatement = conDB.DisplayDB1.clientPrepareStatement("INSERT INTO siswa (NPM,Nama,Alamat) VALUES (?,?,?)");
-            conDB.preparedStatement.setString(1, getUserModels().getNPM());
-            conDB.preparedStatement.setString(2, getUserModels().getNama());
-            conDB.preparedStatement.setString(3, getUserModels().getAlamat());
+            conDB.preparedStatement.setString(1, getSiswaModels().getNPM());
+            conDB.preparedStatement.setString(2, getSiswaModels().getNama());
+            conDB.preparedStatement.setString(3, getSiswaModels().getAlamat());
         } catch (Exception ex) {
             ex.printStackTrace();
         } finally {
@@ -141,6 +141,29 @@ public class DB_Mahasiswa {
         } catch (Exception e) {
             e.printStackTrace();
             return null;
+        }
+    }
+
+    /*
+    * Update Data
+     */
+    public boolean Update_Data() {
+        boolean Success = false;
+        Connector_DB cndb = new Connector_DB();
+        try {
+            cndb.Open_Connection();
+            cndb.preparedStatement = (PreparedStatement) cndb.DisplayDB1.prepareStatement("UPDATE siswa set Nama=?, Alamat=? WHERE NPM=?");
+            cndb.preparedStatement.setString(1, getSiswaModels().getNama());
+            cndb.preparedStatement.setString(2, getSiswaModels().getAlamat());
+            cndb.preparedStatement.setString(3, getSiswaModels().getNPM());
+            cndb.preparedStatement.executeUpdate();
+            Success = true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            Success = false;
+        } finally {
+            cndb.CloseConnection();
+            return Success;
         }
     }
 
