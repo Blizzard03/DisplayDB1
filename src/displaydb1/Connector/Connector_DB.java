@@ -4,9 +4,10 @@
  */
 package displaydb1.Connector;
 
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.Statement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.sql.DriverManager;
 
 /**
@@ -18,6 +19,8 @@ public class Connector_DB {
     public Connection DisplayDB1;
     public Statement statement;
     public PreparedStatement preparedStatement;
+    private String user = "Blizzard_Wolf_Smith";
+    private String password = "Bl1zz4rd03";
 
     public Connector_DB() {
         this.DisplayDB1 = null;
@@ -26,8 +29,7 @@ public class Connector_DB {
     public void Open_Connection() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            DisplayDB1 = (Connection) DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/siswa_2020130036?user=Blizzard_Wolf_Smith&password=Bl1zz4rd03");
+            DisplayDB1 = DriverManager.getConnection("jdbc:mysql://localhost:3306/siswa_2020130036?user=Blizzard_Wolf_Smith?password=Bl1zz4rd03?charset=UTF8_GENERAL_CI");
         } catch (Exception e) {
             e.printStackTrace();
         }

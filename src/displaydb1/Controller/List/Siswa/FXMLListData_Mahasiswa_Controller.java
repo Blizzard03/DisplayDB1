@@ -1,36 +1,38 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXMLController.java to edit this template
  */
 package displaydb1.Controller.List.Siswa;
 
-import displaydb1.Model.Siswa.Siswa;
-import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
-import javafx.scene.input.KeyEvent;
 import displaydb1.Controller.Main_Menu.FXMLMAIN_MenuController;
+import displaydb1.Model.Siswa.Siswa;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
+ * FXML Controller class
  *
  * @author Blizzard
  */
-public class FXMLListData_Mahasiswa_Controller {
+public class FXMLListData_Mahasiswa_Controller implements Initializable {
 
     @FXML
     private TableView<Siswa> TableViewMahasiswa;
@@ -56,16 +58,16 @@ public class FXMLListData_Mahasiswa_Controller {
     private int Val = 0;
     private String NPM = "";
 
+
     /**
      * Initializes the controller class.
      */
-    //@Override
+    @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         DataShow();
-    }
-
-    //Table Data Siswa
+    }    
+//Table Data Siswa
     public void DataShow() {
         ObservableList<Siswa> data = FXMLMAIN_MenuController.dataBaseMahasiswa.Load();
         if (data != null) {
@@ -214,5 +216,5 @@ public class FXMLListData_Mahasiswa_Controller {
             DataShow();
         }
     }
-
+    
 }

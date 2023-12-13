@@ -8,7 +8,7 @@
   </information>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="DisplayDB1.jar" size="932764" download="eager" />
+    <jar href="DisplayDB1.jar" size="932766" download="eager" />
     <jar href="lib\mysql-connector-java-3.1.11a-bin.jar" size="442841" download="eager" />
   </resources>
   <jfx:javafx-desc  width="800" height="600" main-class="displaydb1.Main_Class.DisplayDB1"  name="DisplayDB1" />

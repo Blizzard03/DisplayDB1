@@ -4,15 +4,13 @@
  */
 package displaydb1.Data_Base.DBMahasiswa;
 
-import com.mysql.jdbc.PreparedStatement;
-import com.mysql.jdbc.Statement;
 import displaydb1.Connector.Connector_DB;
 import displaydb1.Model.Siswa.Siswa;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 /**
  *
  * @author Blizzard
@@ -37,8 +35,8 @@ public class DB_Mahasiswa {
             ObservableList<Siswa> Data_Table = FXCollections.observableArrayList();
             Connector_DB conDB = new Connector_DB();
             conDB.Open_Connection();
-            conDB.statement = (Statement) conDB.DisplayDB1.createStatement();
-            ResultSet rs = conDB.statement.executeQuery("SELECT * from siswa");
+            conDB.statement = conDB.DisplayDB1.createStatement();
+            ResultSet rs = conDB.statement.executeQuery("select * from siswa");
             int z = 1;
             while (rs.next()) {
                 Siswa dt = new Siswa();
@@ -65,9 +63,9 @@ public class DB_Mahasiswa {
             Connector_DB conDB = new Connector_DB();
             conDB.Open_Connection();
             conDB.statement = (Statement) conDB.DisplayDB1.createStatement();
-            ResultSet rs = conDB.statement.executeQuery("SELECT COUNT(*) AS SUM FORM siswa WHERE NPM ='" + order + "'");
+            ResultSet rs = conDB.statement.executeQuery("select count(*) as sum from siswa where NPM ='" + order + "'");
             while (rs.next()) {
-                val = rs.getInt("SUM");
+                val = rs.getInt("sum");
             }
         } catch (SQLException sql) {
             sql.printStackTrace();
@@ -83,7 +81,7 @@ public class DB_Mahasiswa {
         Connector_DB conDB = new Connector_DB();
         try {
             conDB.Open_Connection();
-            conDB.preparedStatement = conDB.DisplayDB1.clientPrepareStatement("INSERT INTO siswa (NPM,Nama,Alamat) VALUES (?,?,?)");
+            conDB.preparedStatement = conDB.DisplayDB1.prepareStatement("insert into siswa (NPM,Nama,Alamat) values (?,?,?)");
             conDB.preparedStatement.setString(1, getSiswaModels().getNPM());
             conDB.preparedStatement.setString(2, getSiswaModels().getNama());
             conDB.preparedStatement.setString(3, getSiswaModels().getAlamat());
@@ -103,7 +101,7 @@ public class DB_Mahasiswa {
         Connector_DB con = new Connector_DB();
         try {
             con.Open_Connection();;
-            con.preparedStatement = (PreparedStatement) con.DisplayDB1.prepareStatement("DELETE FROM siswa WHERE NPM  = ? ");
+            con.preparedStatement = con.DisplayDB1.prepareStatement("DELETE FROM siswa WHERE NPM  = ? ");
             con.preparedStatement.setString(1, NPM);
             con.preparedStatement.executeUpdate();
             Success = true;
@@ -124,7 +122,7 @@ public class DB_Mahasiswa {
             Data_Table = FXCollections.observableArrayList();
             Connector_DB conDB = new Connector_DB();
             conDB.Open_Connection();
-            conDB.statement = (Statement) (java.sql.Statement) conDB.DisplayDB1.createStatement();
+            conDB.statement = conDB.DisplayDB1.createStatement();
             ResultSet rs = (ResultSet) conDB.statement.executeQuery("SELECT * FROM siswa WHERE NPM LIKE '" + NPM + "%' OR Nama LIKE '" + Nama + "%'");
             int z = 1;
             while (rs.next()) {
@@ -152,7 +150,7 @@ public class DB_Mahasiswa {
         Connector_DB cndb = new Connector_DB();
         try {
             cndb.Open_Connection();
-            cndb.preparedStatement = (PreparedStatement) cndb.DisplayDB1.prepareStatement("UPDATE siswa set Nama=?, Alamat=? WHERE NPM=?");
+            cndb.preparedStatement = cndb.DisplayDB1.prepareStatement("UPDATE siswa set Nama=?, Alamat=? WHERE NPM=?");
             cndb.preparedStatement.setString(1, getSiswaModels().getNama());
             cndb.preparedStatement.setString(2, getSiswaModels().getAlamat());
             cndb.preparedStatement.setString(3, getSiswaModels().getNPM());
